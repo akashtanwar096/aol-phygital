@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene mindar-image="imageTargetSrc: ./Image_Video_Final/6_targets.mind;" 
+             color-space="sRGB" 
+             renderer="colorManagement: true, physicallyCorrectLights" 
+             vr-mode-ui="enabled: false" 
+             device-orientation-permission-ui="enabled: false">
+      
+      <a-assets>
+        <video id="video1" src="./Image_Video_Final/Video_001.mp4" loop crossorigin="anonymous" playsinline></video>
+        <video id="video2" src="./Image_Video_Final/Video_002.mp4" loop crossorigin="anonymous" playsinline></video>
+        <video id="video3" src="./Image_Video_Final/Video_003.mp4" loop crossorigin="anonymous" playsinline></video>
+        <video id="video4" src="./Image_Video_Final/Video_004.mp4" loop crossorigin="anonymous" playsinline></video>
+        <video id="video5" src="./Image_Video_Final/Video_005.mp4" loop crossorigin="anonymous" playsinline></video>
+        <video id="video6" src="./Image_Video_Final/Video_006.mp4" loop crossorigin="anonymous" playsinline></video>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-video id="videoPlane1" src="#video1" position="0 0 0" width="1" height="1"></a-video>
+      </a-entity>
+      
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-video id="videoPlane2" src="#video2" position="0 0 0" width="1" height="1"></a-video>
+      </a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 2">
+        <a-video id="videoPlane3" src="#video3" position="0 0 0" width="1" height="1"></a-video>
+      </a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 3">
+        <a-video id="videoPlane4" src="#video4" position="0 0 0" width="1" height="1"></a-video>
+      </a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 4">
+        <a-video id="videoPlane5" src="#video5" position="0 0 0" width="1" height="1"></a-video>
+      </a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 5">
+        <a-video id="videoPlane6" src="#video6" position="0 0 0" width="1" height="1"></a-video>
+      </a-entity>
+    </a-scene>
+
+    <script>
+      const video1 = document.querySelector("#video1");
+      const video2 = document.querySelector("#video2");
+      const video3 = document.querySelector("#video3");
+      const video4 = document.querySelector("#video4");
+      const video5 = document.querySelector("#video5");
+      const video6 = document.querySelector("#video6");
+
+      document.querySelector("[mindar-image-target='targetIndex: 0']").addEventListener("targetFound", () => {
+        console.log("Target 0 Found - Playing Video 1");
+        video1.play().catch(error => console.error("Autoplay prevented:", error));
+      });
+      document.querySelector("[mindar-image-target='targetIndex: 0']").addEventListener("targetLost", () => {
+        console.log("Target 0 Lost - Pausing Video 1");
+        video1.pause();
+      });
+
+      document.querySelector("[mindar-image-target='targetIndex: 1']").addEventListener("targetFound", () => {
+        console.log("Target 1 Found - Playing Video 2");
+        video2.play().catch(error => console.error("Autoplay prevented:", error));
+      });
+      document.querySelector("[mindar-image-target='targetIndex: 1']").addEventListener("targetLost", () => {
+        console.log("Target 1 Lost - Pausing Video 2");
+        video2.pause();
+      });
+
+      document.querySelector("[mindar-image-target='targetIndex: 2']").addEventListener("targetFound", () => {
+        console.log("Target 1 Found - Playing Video 3");
+        video3.play().catch(error => console.error("Autoplay prevented:", error));
+      });
+      document.querySelector("[mindar-image-target='targetIndex: 2']").addEventListener("targetLost", () => {
+        console.log("Target 1 Lost - Pausing Video 3");
+        video3.pause();
+      });
+
+      document.querySelector("[mindar-image-target='targetIndex: 3']").addEventListener("targetFound", () => {
+        console.log("Target 1 Found - Playing Video 4");
+        video4.play().catch(error => console.error("Autoplay prevented:", error));
+      });
+      document.querySelector("[mindar-image-target='targetIndex: 3']").addEventListener("targetLost", () => {
+        console.log("Target 1 Lost - Pausing Video 4");
+        video4.pause();
+      });
+
+      document.querySelector("[mindar-image-target='targetIndex: 4']").addEventListener("targetFound", () => {
+        console.log("Target 1 Found - Playing Video 5");
+        video5.play().catch(error => console.error("Autoplay prevented:", error));
+      });
+      document.querySelector("[mindar-image-target='targetIndex: 4']").addEventListener("targetLost", () => {
+        console.log("Target 1 Lost - Pausing Video 5");
+        video5.pause();
+      });
+
+      document.querySelector("[mindar-image-target='targetIndex: 5']").addEventListener("targetFound", () => {
+        console.log("Target 1 Found - Playing Video 6");
+        video6.play().catch(error => console.error("Autoplay prevented:", error));
+      });
+      document.querySelector("[mindar-image-target='targetIndex: 5']").addEventListener("targetLost", () => {
+        console.log("Target 1 Lost - Pausing Video 6");
+        video6.pause();
+      });
+
+    </script>
+  </body>
+</html>
